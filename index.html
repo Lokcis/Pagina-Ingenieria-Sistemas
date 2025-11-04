@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visor de Archivos de Drive</title>
+    <style>
+        /* Estilos básicos para la tabla */
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; cursor: pointer; }
+        .folder-link { cursor: pointer; color: #004d99; font-weight: bold; }
+        .file-link { color: #007bff; }
+    </style>
+</head>
+<body>
+
+    <h1>Visor de Archivos de Google Drive</h1>
+
+    <button id="authorize-button" style="display: block; padding: 10px 20px; background-color: #4285F4; color: white; border: none; cursor: pointer;">
+        Iniciar Sesión con Google Drive
+    </button>
+
+    <div id="drive-container" style="display: none; margin-top: 20px;">
+        <button id="back-button" style="padding: 8px 12px; background-color: #f0f0f0; border: 1px solid #ccc; cursor: pointer; display: none;">
+            ← Volver
+        </button>
+        <h2 style="margin-top: 10px;">Contenido de: <span id="current-folder-name">Mi Unidad</span></h2>
+
+        <input type="text" id="filter-input" placeholder="Filtrar archivos por nombre..." style="padding: 8px; width: 300px; border: 1px solid #ccc; margin-bottom: 15px;"/>
+
+        <table id="file-table">
+            <thead>
+                <tr>
+                    <th data-sort-by="name">Nombre (y Carpeta)</th>
+                    <th data-sort-by="mimeType">Tipo</th>
+                    <th data-sort-by="createdTime">Fecha Creación</th>
+                    <th data-sort-by="modifiedTime">Fecha Modificación</th>
+                </tr>
+            </thead>
+            <tbody id="file-list-body">
+                </tbody>
+        </table>
+    </div>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
